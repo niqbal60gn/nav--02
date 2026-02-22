@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite thread-count="3" parallel="methods" name="Suite">
+  
+  <!-- Test 1: Run only smoke tests -->
+  <test thread-count="3" parallel="methods" name="SmokeTests">
+    <groups>
+      <run>
+        <include name="smoke" />
+      </run>
+    </groups>
+    <classes>
+      <class name="pkg.ParallelTest"/>
+    </classes>
+  </test>
+  
+  <!-- Test 2: Run only regression tests -->
+  <test thread-count="3" parallel="methods" name="RegressionTests">
+    <groups>
+      <run>
+        <include name="regression" />
+      </run>
+    </groups>
+    <classes>
+      <class name="pkg.ParallelTest"/>
+    </classes>
+  </test>
+  
+  <!-- Test 3: Run specific groups with exclusions -->
+  <test thread-count="3" parallel="methods" name="MixedTests">
+    <groups>
+      <run>
+        <include name="smoke" />
+        <include name="integration" />
+        <exclude name="regression" />
+      </run>
+    </groups>
+    <classes>
+      <class name="pkg.ParallelTest"/>
+    </classes>
+  </test>
+  
+  <!-- Test 4: Run tests with specific priority range -->
+  <test thread-count="3" parallel="methods" name="PriorityTests">
+    <classes>
+      <class name="pkg.ParallelTest"/>
+    </classes>
+  </test>
+  
+</suite>
